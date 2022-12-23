@@ -1,10 +1,12 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 
-// let mongooseURL = 'mongodb+srv://jobas:B0cJbAaNVRxH3alN@cluster0.co7nqvi.mongodb.net/mern-excursions'
-let mongooseURL = 'mongodb+srv://jobas:B0cJbAaNVRxH3al@cluster0.co7nqvi.mongodb.net/?retryWrites=true&w=majority'
-// mongoose.connect(mongooseURL, {useUnifiedTopology : true, useNewUrlParser : true });
-mongoose.connect(mongooseURL, {useUnifiedTopology : true, useNewUrlParser : true,
-serverApi: ServerApiVersion.v1 });
+
+// let mongooseURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.co7nqvi.mongodb.net/mern-excursions`
+
+
+mongoose.connect(process.env.DB_URI, {useUnifiedTopology : true, useNewUrlParser : true });
+
 
 let connection = mongoose.connection;
 
