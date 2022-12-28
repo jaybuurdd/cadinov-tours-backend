@@ -15,7 +15,7 @@ app.use('/api/users', usersRoute)
 app.use('/api/bookings' , bookingsRoute)
 
 
-if(process.env.NODE_ENV ==='production')
+if(process.env.NODE_ENV === 'production')
 {
     app.use('/' , express.static('client/build'))
 
