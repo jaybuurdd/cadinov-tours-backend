@@ -1,15 +1,22 @@
+
 const express = require("express");
 
 const app = express();
 const dbConfig = require(`./db`);
 app.use(express.json())
+
 const path = require('path')
+const cors = require('cors')
+const corsOptions = require('./config/corsOptions')
+
+
+
 const excursionsRoute = require("./routes/excursionsRoute")
 const usersRoute = require("./routes/usersRoute")
 const bookingsRoute=require('./routes/bookingsRoute')
 
 
-
+app.use(cors(corsOptions))
 app.use('/api/excursions', excursionsRoute)
 app.use('/api/users', usersRoute)
 app.use('/api/bookings' , bookingsRoute)
