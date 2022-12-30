@@ -15,8 +15,10 @@ const excursionsRoute = require("./routes/excursionsRoute")
 const usersRoute = require("./routes/usersRoute")
 const bookingsRoute=require('./routes/bookingsRoute')
 
-
+dbConfig()
 app.use(cors(corsOptions))
+app.use(express.json)
+
 app.use('/api/excursions', excursionsRoute)
 app.use('/api/users', usersRoute)
 app.use('/api/bookings' , bookingsRoute)
