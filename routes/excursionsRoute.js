@@ -9,6 +9,8 @@ const { ObjectId } = require('mongodb');
 const Excursion = require('../models/excursion')
 
 router.get("/getallexcursions", async(req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://cadinov.onrender.com');
+  res.header('Access-Control-Allow-Credentials', 'true');
 
     try {
 
@@ -24,6 +26,8 @@ router.get("/getallexcursions", async(req, res) => {
 });
 
 router.post("/getexcursionbyid", async(req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://cadinov.onrender.com');
+  res.header('Access-Control-Allow-Credentials', 'true');
 
     const excursionid = req.body.excursionid
     try {
@@ -40,6 +44,8 @@ router.post("/getexcursionbyid", async(req, res) => {
 });
 
 router.get("/getallexcursions", async(req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://cadinov.onrender.com');
+  res.header('Access-Control-Allow-Credentials', 'true');
     console.log(req.body);
     try {
          const excursions = await Excursion.find({})
@@ -50,6 +56,8 @@ router.get("/getallexcursions", async(req, res) => {
 });
 
 router.post("/addexcursion", async(req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://cadinov.onrender.com');
+  res.header('Access-Control-Allow-Credentials', 'true');
  const { excursion , 
     imgurl1 ,imgurl2 ,imgurl3, price, type,  
     maxcount ,size, duration,description} = req.body
@@ -81,6 +89,8 @@ const newexcursion = new Excursion ({
 
 // Delete an excursion by ID
 router.delete('/:id', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://cadinov.onrender.com');
+  res.header('Access-Control-Allow-Credentials', 'true');
     // Get the excursion ID from the request
     const excursionId = req.params.id;
     const objectId = new ObjectId(excursionId);
